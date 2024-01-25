@@ -1,22 +1,25 @@
-import React from 'react';
-import './App.css';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'; // Import BrowserRouter
-import Navbar from './components/Navbar';
-import Home from './components/Home'; // Import Home without curly braces
-import About from './components/About'; // Import About component
+// App.js
+import React from "react";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import Navbar from "./components/Navbar";
+import Home from "./components/Home";
+import About from "./components/About";
+import { NoteState } from "./context/notes/NoteState";
 
 function App() {
   return (
-    <Router> 
-      <div className="App">
-        <Navbar />
-        <Routes>
-          <Route  exact path="/" element={<Home />} />
-          <Route exact path="/about" element={<About />} />
-        </Routes>
-        <h1>This is iNotebook</h1>
-      </div>
-    </Router>
+    <NoteState>
+      <Router>
+        <div className="App">
+          <Navbar />
+          <div className="container"></div>
+          <Routes>
+            <Route exact path="/" element={<Home />} />
+            <Route exact path="/about" element={<About />} />
+          </Routes>
+        </div>
+      </Router>
+    </NoteState>
   );
 }
 
