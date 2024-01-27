@@ -1,4 +1,6 @@
+// Home.js
 import React from 'react';
+import Notes from './Notes';
 
 const Home = () => {
   return (
@@ -34,7 +36,11 @@ const Home = () => {
       </div>
 
       <div className="container my-3">
-        <h2>Your Note</h2>
+        <div className="row">
+          <div className="col-md-12">
+            <Notes />
+          </div>
+        </div>
       </div>
     </div>
   );
