@@ -5,13 +5,15 @@ import Navbar from "./components/Navbar";
 import Home from "./components/Home";
 import About from "./components/About";
 import { NoteState } from "./context/notes/NoteState";
+// import Alert from "./Alert.js";
 
 function App() {
   return (
     <NoteState>
       <Router>
         <div className="App">
-          <Navbar />
+          <Navbar/>
+          {/* <Alert message="This is amazing "/> */}
           <div className="container"></div>
           <Routes>
             <Route exact path="/" element={<Home />} />
