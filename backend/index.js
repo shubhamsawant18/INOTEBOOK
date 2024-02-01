@@ -1,9 +1,8 @@
-// index.js
-
 const express = require('express');
 const app = express();
 const connectdb = require('./db');
 const bodyParser = require("body-parser");
+const cors = require('cors'); // Import the cors middleware
 
 // Import the auth and notes routers
 const authRouter = require('./routes/auth'); // Assuming you have an auth route
@@ -14,6 +13,9 @@ connectdb();
 // Middleware to parse JSON in the request body
 app.use(express.json());
 app.use(bodyParser.json());
+
+// Use the cors middleware to enable CORS for all routes
+app.use(cors());
 
 // Mount the auth router at the specified path
 app.use('/api/auth', authRouter);
