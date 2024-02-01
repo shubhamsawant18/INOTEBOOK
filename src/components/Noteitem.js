@@ -5,7 +5,6 @@ import { noteContext } from '../context/notes/noteContext';
 const Noteitem = (props) => {
     const context = useContext(noteContext);
     
-    // Corrected function name to deleteNote
     const { deleteNote } = context;
     const { note } = props;
 
