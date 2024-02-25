@@ -41,17 +41,10 @@ router.post(
         tag,
         user: req.user.id,
       }).save();
-      res.json({
-        _id: savedNote._id,
-        user: savedNote.user,
-        title: savedNote.title,
-        description: savedNote.description,
-        tag: savedNote.tag,
-        date: savedNote.date,
-      });
+       return res.json(savedNote);
     } catch (error) {
       console.error(error.message);
-      res.status(500).json({ error: "Internal Server Error" });
+      res.status(500).json({ error: "Internal server error",message: error });
     }
   }
 );

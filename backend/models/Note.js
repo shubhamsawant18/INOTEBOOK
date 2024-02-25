@@ -11,24 +11,18 @@ const NoteSchema = new mongoose.Schema({
         type: String,
         required: true,
     },
-    _id: {
-        type: mongoose.Schema.Types.ObjectId,
-        required: true,
-    },
+
     description: {
         type: String,
         unique: true,
         required: false,
     },
-    date: {
-        type: Date,
-        default: Date.now
-    },
+   
     tag: {
         type: String,
         default: "General"
     }
-});
+}, {timestamps: true});
 
 // Allow multiple null values for 'description' in the unique index
 NoteSchema.index({ description: 1 }, { unique: true, sparse: true });
